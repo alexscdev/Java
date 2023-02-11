@@ -1,13 +1,16 @@
 package ejercicio1Tema2;
 
+
 public class TemperaturaMejorada {
+	double tempActual;
 	
-	double temperaturaActual;
-	
-	void darTemperatura(double temperaturaActual) {
-		this.temperaturaActual = temperaturaActual;
+	void darTemperaturaActual(double temperaturaActual) {
+		this.tempActual = temperaturaActual;
 	}
+	
 	double devolverTemperatura() {
+		return this.tempActual; 
+		
 		
 	}
 

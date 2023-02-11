@@ -4,25 +4,19 @@ import java.util.Scanner;
 public class EntradaPorConsola {
 
 	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
 		String name = "vacio";
 		
-		try {
-			// create an object of scanner
-			
-			if(args.lenght==0) {
-				Scanner input = new Scanner(System.in);
-			}
-
-			//Take input from the user
-			String name= input.next();
+		if(args.length==0) {
+			Scanner input = new Scanner(System.in); 
+			name = input.next();
 			input.close();
-			
-			
-			System.out.println("Hello! "+name);
-		}catch (Exception e) {
-			e.getMessage();
+		} else {
+			name=args[0];
 		}
+		System.out.println("Hello " + name);
 
-	}
-
+}
+	
 }
