@@ -1,23 +1,25 @@
 package ejerciciosTema2;
 import java.util.*;
-;
+
 
 public class CalcularBilletes {
+	
+	// Este metodo de encarga de calcular los billetes necesarios para cierta cantidad
 	public static String pasarBilletes() {
 		
+		//Pedimos los billetes al usuario
 		System.out.println("Introduce los euros: ");
 		Scanner scanner = new Scanner(System.in);
 		int numero = scanner.nextInt();
 		scanner.close();
 		
+		//Declaramos la variables y una lista con los billetes
 		int billetes []= {500,200,100,50,20,10,5};
 		int euros = numero;
 		int eurosStatic = numero;
 		int cantidad = 0;
 		
-		
-		
-		
+		//LinkedHashMap para ordenar los billetes y sus cantidades
 	 LinkedHashMap<Integer,Integer> recuentoBilletes=new LinkedHashMap<Integer,Integer>();
 		
 		for (int i = 0; i< billetes.length; i++) {
@@ -28,7 +30,7 @@ public class CalcularBilletes {
 				}
 		
 		System.out.println("Necesitara los siguientes billetes: ");
-		
+		// Hacemos recuento de los billetes y los mostramos
 		for (int o : recuentoBilletes.keySet()) {
 	          
 	        
@@ -67,6 +69,8 @@ public class CalcularBilletes {
 		      
 		      
 		    }
+		
+		//Calculamos la cantidad que no podemos pagar con billetes
 		int sobrante = eurosStatic-cantidad;
 		return "Sobra: "+sobrante;
 
