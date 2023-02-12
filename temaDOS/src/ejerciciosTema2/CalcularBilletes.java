@@ -1,55 +1,82 @@
 package ejerciciosTema2;
+import java.util.*;
+;
 
 public class CalcularBilletes {
-	
-	public static String pasaBilletes(int euros) {
-		int cantidad = euros;
-		int reserva;
-		int suma = 0;
+	public static String pasarBilletes() {
 		
-		int billetes500 = cantidad/500;
-		    cantidad = cantidad%500;
-		    suma += billetes500*500;
+		System.out.println("Introduce los euros: ");
+		Scanner scanner = new Scanner(System.in);
+		int numero = scanner.nextInt();
+		scanner.close();
 		
-		int billetes200 = cantidad/200;
-		    cantidad = cantidad/200;
-		    suma += billetes200*200;
+		int billetes []= {500,200,100,50,20,10,5};
+		int euros = numero;
+		int eurosStatic = numero;
+		int cantidad = 0;
 		
-		int billetes100 = cantidad%100;
-		    cantidad = cantidad%100;
-		    suma += billetes100*100;
-		    
-		int billetes50 = cantidad%50;
-		    cantidad = cantidad%50;
-		    suma += billetes50*50;
-		    
-		int billetes20 = cantidad%20;
-		    cantidad = cantidad%20;
-		    suma += billetes20*20;
-		    
-		int billetes10 = cantidad%10;
-		    cantidad = cantidad%10;
-		    suma += billetes10*10;
-		    
-		    
-		    //TODO Queda calcular lo que queda en monedas
-		int billetes5 = cantidad%5;
-		    cantidad = cantidad%5;
-		    suma += billetes5*5;
-		    
-		    
-		return billetes500 + " " + billetes200 + " " + billetes100
-				+ " " + billetes50 + " " + billetes20 + " " + billetes10
-				+ " " + billetes5 + " " ;
 		
-	}
-	
-	
-	
-	public static void main (String [] args) {
 		
-		System.out.println(pasaBilletes(1856));
 		
-	}
+	 LinkedHashMap<Integer,Integer> recuentoBilletes=new LinkedHashMap<Integer,Integer>();
+		
+		for (int i = 0; i< billetes.length; i++) {
+			
+			int billetitos = euros/billetes[i];
+			euros = euros%billetes[i];
+			recuentoBilletes.put(billetes[i], billetitos);
+				}
+		
+		System.out.println("Necesitara los siguientes billetes: ");
+		
+		for (int o : recuentoBilletes.keySet()) {
+	          
+	        
+		      switch(o) {
+		        case 500:
+		          System.out.println("500: "+recuentoBilletes.get(500));
+		          cantidad += recuentoBilletes.get(500)*500;
+		          break;
+		        case 200:
+		          System.out.println("200: "+recuentoBilletes.get(200));
+		          cantidad += recuentoBilletes.get(200)*200;
+		          break;
+		        case 100:
+		          System.out.println("100: "+recuentoBilletes.get(100));
+		          cantidad += recuentoBilletes.get(100)*100;
+		          break;
+		        case 50:
+		          System.out.println("50: "+recuentoBilletes.get(50));
+		          cantidad += recuentoBilletes.get(50)*50;
+		          break;
+		        case 20:
+			      System.out.println("20: "+recuentoBilletes.get(20));
+			      cantidad += recuentoBilletes.get(20)*20;
+			      break;
+		        case 10:
+			      System.out.println("10: "+recuentoBilletes.get(10));
+			      cantidad += recuentoBilletes.get(10)*10;
+			      break;
+		        case 5:
+			      System.out.println("5: "+recuentoBilletes.get(5));
+			      cantidad += recuentoBilletes.get(5)*5;
+			      break;
+		        default:
+		          System.out.println("Error");
+		      }
+		      
+		      
+		    }
+		int sobrante = eurosStatic-cantidad;
+		return "Sobra: "+sobrante;
 
+		}
+			
+
+		public static void main(String[] args) {
+			
+			System.out.println(pasarBilletes());
+			
+			
+		}
 }
