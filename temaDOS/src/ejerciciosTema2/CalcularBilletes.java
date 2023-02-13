@@ -72,7 +72,7 @@ public class CalcularBilletes {
 		
 		//Calculamos la cantidad que no podemos pagar con billetes
 		int sobrante = eurosStatic-cantidad;
-		return "Sobra: "+sobrante;
+		return "Sobra: "+sobrante+"€";
 
 		}
 			
