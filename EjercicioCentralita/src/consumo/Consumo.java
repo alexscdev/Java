@@ -2,32 +2,33 @@ package consumo;
 
 public class Consumo {
 	
-	private int kms;
-	private int litros;
-	private int vmed;
+	private double kms;
+	private double litros;
+	private double vmed;
 	private double pgas;
 	
 	
-	public Consumo() {
-		kms = 123945;
-		litros = 53;
-		vmed = 67;
-		pgas = 1.80;
+	public Consumo(double kms, double litros, double vmed, double pgas) {
+		this.kms = kms;
+		this.litros = litros;
+		this.vmed = vmed;
+		this.pgas = pgas;
 	}
 
-    int getTiempo(int tiempo) {
-		return tiempo;
+    public double getTiempo() {
+		return kms/vmed;
 	}
 	
-	int consumoMedio(){
-		return (litros/(kms/100));
+	public double consumoMedio(){
+		return litros/(kms/100);
 	}
 	
-	int consumoEuros(){
-		return (int) ((litros/(kms/100))*pgas);
+	public double consumoEuros(){
+		return  ((litros/(kms/100))*pgas);
 	}
+	
+	
 
-	
 	//Implementamos los setters
 
 	public void setKms(int kms) {
@@ -42,7 +43,18 @@ public class Consumo {
 		this.vmed = vmed;
 	}
 
-	public void setPgas(double pgas) {
+	public void setPgas(float pgas) {
 		this.pgas = pgas;
+	}
+	
+	public static void main (String [] args) {
+		Consumo consumo1 = new Consumo(800, 50, 100, 1.80);
+		
+		System.out.println(consumo1.getTiempo());
+		
+		System.out.println(consumo1.consumoMedio());
+		
+		System.out.println(consumo1.consumoEuros());
+		
 	}
 }
