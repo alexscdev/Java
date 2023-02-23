@@ -5,8 +5,8 @@ package ejercicios;
 public class Ejercicio11 {
 	/** Saber cuantos clientes podemos atender con la cantidad que tenemos de comida */
 	
-	static double chocos = 0;
-	static double papas = 0;
+	static double chocos;
+	static double papas;
 
 
 	
@@ -35,7 +35,7 @@ public static int saberClientes() {
 		
 		
 		while(papas >= 1 && chocos >= 0.5) {
-			clientes ++;
+			clientes +=3;
 			papas -= 1.0;
 			chocos -= 0.5;
 		}
