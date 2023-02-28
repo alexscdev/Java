@@ -1,3 +1,3 @@
 # Java
 
-Aquí subiré todos mis archivos de java del curso de DAM
+Atencion! Este repositorio se encuantra migrando a https://github.com/alexscamg/Programacion
