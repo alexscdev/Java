@@ -1,1 +1,1 @@
-# Atencion! Este repositorio se encuantra migrando a https://github.com/alexscamg/Programacion
+Ejercicios de java propuestos en clase para repaso
