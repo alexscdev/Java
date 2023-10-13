@@ -114,7 +114,7 @@ public class Test {
 
 		for (int i = 0; i < 300; i++)
 			Publicacion.leePaginaStatic(true, libroUlises);
-		// get pagina actual
+		
 		for (int i = 0; i < 5; i++)
 			Publicacion.leePaginaStatic(false, libroUlises);
 
