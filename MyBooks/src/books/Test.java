@@ -27,32 +27,39 @@ public class Test {
 		Publicacion[] publicaciones = { lib1, lib2, lib3, lib4, lib5, lib6, lib7, lib8, lib9, lib10, rev1, rev2, rev3,
 				rev4, rev5 };
 
+		System.out.println("\nTodas las publicaciones");
 		// Todas las publicaciones del array publicaciones con título y ID.
 		for (int i = 0; i < publicaciones.length; i++) // Optimizar con for Each
 			System.out.println("Titulo: " + publicaciones[i].getTitulo() + " --ID: " + publicaciones[i].getID());
 
+		System.out.println("\nSolo Libros");
 		// Solo libros
 		for (int i = 0; i < publicaciones.length; i++)
 			if (publicaciones[i] instanceof Libro)
 				System.out.println("Titulo: " + publicaciones[i].getTitulo() + " --ID: " + publicaciones[i].getID());
 
+		System.out.println("\nSolo Revistas");
 		// Solo revistas
 		for (int i = 0; i < publicaciones.length; i++)
 			if (publicaciones[i] instanceof Revista)
 				System.out.println("Titulo: " + publicaciones[i].getTitulo() + " --ID: " + publicaciones[i].getID());
 
+		System.out.println("\nPublicaciones con precio mayor que 20€");
 		// Publicaciones con precio mayor que 20€
 		for (int i = 0; i < publicaciones.length; i++)
+			if (publicaciones[i].getPrecio() > 20.00)
 			System.out.println("Titulo: " + publicaciones[i].getTitulo() + " --ID: " + publicaciones[i].getID()
 					+ " Precio: " + publicaciones[i].getPrecio());
 
+		System.out.println("\nLibros con precio mayor que 20€");
 		// Libros con precio mayor que 20€
 		for (int i = 0; i < publicaciones.length; i++)
 			if (publicaciones[i] instanceof Libro && publicaciones[i].getPrecio() > 20.00)
 				System.out.println("Titulo: " + publicaciones[i].getTitulo() + " --ID: " + publicaciones[i].getID()
 						+ " Precio: " + publicaciones[i].getPrecio());
 
-		// Revistas con precio mayor que 20€
+		System.out.println("\nRevistas con precio mayor que 3€");
+		// Revistas con precio mayor que 3€
 		for (int i = 0; i < publicaciones.length; i++)
 			if (publicaciones[i] instanceof Revista && publicaciones[i].getPrecio() > 3.00)
 				System.out.println("Titulo: " + publicaciones[i].getTitulo() + " --ID: " + publicaciones[i].getID()
@@ -63,20 +70,60 @@ public class Test {
 
 		Libro libroUlises = (Libro) publicacionesList.get(7);
 
+		System.out.println("\nTodas las publicaciones");
+		// Todas las publicaciones del array publicaciones con título y ID.
+		for (int i = 0; i < publicacionesList.size(); i++) // Optimizar con for Each
+			System.out.println(
+					"Titulo: " + publicacionesList.get(i).getTitulo() + " --ID: " + publicacionesList.get(i).getID());
+
+		System.out.println("\nSolo Libros");
+		// Solo libros
+		for (int i = 0; i < publicacionesList.size(); i++)
+			if (publicaciones[i] instanceof Libro)
+				System.out.println("Titulo: " + publicacionesList.get(i).getTitulo() + " --ID: "
+						+ publicacionesList.get(i).getID());
+
+		System.out.println("\nSolo Revistas");
+		// Solo revistas
+		for (int i = 0; i < publicacionesList.size(); i++)
+			if (publicaciones[i] instanceof Revista)
+				System.out.println("Titulo: " + publicacionesList.get(i).getTitulo() + " --ID: "
+						+ publicacionesList.get(i).getID());
+
+		System.out.println("\nPublicaciones con precio mayor que 20€");
+		// Publicaciones con precio mayor que 20€
+		for (int i = 0; i < publicacionesList.size(); i++)
+			System.out.println("Titulo: " + publicacionesList.get(i).getTitulo() + " --ID: "
+					+ publicacionesList.get(i).getID() + " Precio: " + publicacionesList.get(i).getPrecio());
+
+		System.out.println("\nLibros con precio mayor que 20€");
+		// Libros con precio mayor que 20€
+		for (int i = 0; i < publicacionesList.size(); i++)
+			if (publicacionesList.get(i) instanceof Libro && publicacionesList.get(i).getPrecio() > 20.00)
+				System.out.println("Titulo: " + publicacionesList.get(i).getTitulo() + " --ID: "
+						+ publicacionesList.get(i).getID() + " Precio: " + publicacionesList.get(i).getPrecio());
+
+		System.out.println("\nRevistas con precio mayor que 3€");
+		// Revistas con precio mayor que 3€
+		for (int i = 0; i < publicacionesList.size(); i++)
+			if (publicaciones[i] instanceof Revista && publicaciones[i].getPrecio() > 3.00)
+				System.out.println("Titulo: " + publicaciones[i].getTitulo() + " --ID: " + publicaciones[i].getID()
+						+ " Precio: " + publicaciones[i].getPrecio());
+
 		libroUlises.showStatic(libroUlises);
 
 		for (int i = 0; i < 300; i++)
 			Publicacion.leePaginaStatic(true, libroUlises);
-			// get pagina actual
+		// get pagina actual
 		for (int i = 0; i < 5; i++)
 			Publicacion.leePaginaStatic(false, libroUlises);
-		
+
 		for (int i = 0; i < 10; i++)
 			libroUlises.leePagina(false);
-		
+
 		for (int i = 0; i < 1000; i++)
 			libroUlises.leePagina(false);
-		
+
 	}
 
 }
