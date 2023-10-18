@@ -32,7 +32,7 @@ public class Revista extends Publicacion {
 
 	@Override
 	public void leePagina(boolean silenciosamente) {
-		if (silenciosamente == true) {
+		if (silenciosamente ) {
 			super.leePagina();
 		} else {
 			if (getPagActual() == getNumPags()) {

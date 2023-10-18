@@ -75,12 +75,7 @@ public abstract class Publicacion implements CanRead {
 	}
 	
 
-	public static void leePaginaStatic(boolean silenciosamente, Publicacion p) {
-		if (p instanceof Libro) 
-			((Libro) p).leePagina(silenciosamente);
-		
-		if (p instanceof Revista)
-			((Revista) p).leePagina(silenciosamente);
-	}
+	
+	
 
 }
