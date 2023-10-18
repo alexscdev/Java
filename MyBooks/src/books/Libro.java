@@ -18,14 +18,26 @@ public class Libro extends Publicacion {
 	public static String getMensajeCabecera() {
 		return mensajeCabecera;
 	}
+	
+	public void show() {
+		System.out.println(mensajeCabecera + "Titulo: " + getTitulo() + "\n" + "Autor: "
+				+ getAutor() + "\n" + "Id: " + getID() + "\n" + "Paginas: " + getNumPags() + "\n"
+				+ "Pagina Inicial: " + getPagInicial() + "\n" + "Pagina Actual: " + getPagActual() + "\n"
+				+ "Precio: " + getPrecio() + "\n" + "Formato digital: " + isFormatoDigital() + "\n" + "Leido: "
+				+ isLeido() + "\n");
+	}
+	
+	
+	public static void showStatic(Libro l) {
+		l.show();
+	}
 
 	
 
 	@Override
 	public void leePagina(boolean silenciosamente) {
 		if (silenciosamente == true) {
-			if (getPagActual() != getNumPags())
-				setPagActual(getPagActual() + 1);
+			super.leePagina();
 		} else {
 			if (getPagActual() == getNumPags()) {
 				System.out.println("Libro titulado " + getTitulo() + " del autor " + getAutor() + " ya ha sido leido");

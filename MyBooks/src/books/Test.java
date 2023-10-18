@@ -68,6 +68,8 @@ public class Test {
 		ArrayList<Publicacion> publicacionesList = new ArrayList<>(Arrays.asList(lib1, lib2, lib3, lib4, lib5, lib6,
 				lib7, lib8, lib9, lib10, rev1, rev2, rev3, rev4, rev5));
 
+		Revista revista = (Revista) publicacionesList.get(10);
+		
 		Libro libroUlises = (Libro) publicacionesList.get(7);
 
 		System.out.println("\nTodas las publicaciones");
@@ -110,10 +112,14 @@ public class Test {
 				System.out.println("Titulo: " + publicaciones[i].getTitulo() + " --ID: " + publicaciones[i].getID()
 						+ " Precio: " + publicaciones[i].getPrecio());
 
+		System.out.println("\nShowStatic Libro");
 		libroUlises.showStatic(libroUlises);
+		
+		System.out.println("\nShowStatic Revista");
+		revista.showStatic(revista);
 
 		for (int i = 0; i < 300; i++)
-			Publicacion.leePaginaStatic(true, libroUlises);
+			libroUlises.leePaginaStatic(true, libroUlises);
 		
 		for (int i = 0; i < 5; i++)
 			Publicacion.leePaginaStatic(false, libroUlises);

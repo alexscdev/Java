@@ -3,7 +3,7 @@ package books;
 public class Revista extends Publicacion {
 
 	private static String mensajeCabecera = "\nDATOS REVISTA\n=============\n";
-	private static long nextID = 1;
+	
 
 	
 	
@@ -18,14 +18,22 @@ public class Revista extends Publicacion {
 		return mensajeCabecera;
 	}
 
+	public void show() {
+		System.out.println(mensajeCabecera + "Titulo: " + getTitulo() + "\n" + "Id: "
+				+ getID() + "\n" + "Paginas: " + getNumPags() + "\n" + "Pagina Inicial: " + getPagInicial()
+				+ "\n" + "Pagina Actual: " + getPagActual() + "\n" + "Precio: " + getPrecio() + "\n"
+				+ "Formato digital: " + isFormatoDigital() + "\n" + "Leido: " + isLeido() + "\n");
+	}
+	
+	public static void showStatic(Revista r) {
+		r.show();
+	}
 	
 
 	@Override
 	public void leePagina(boolean silenciosamente) {
 		if (silenciosamente == true) {
-			if (getPagActual() != getNumPags())
-				setPagActual(getPagActual() + 1);
-
+			super.leePagina();
 		} else {
 			if (getPagActual() == getNumPags()) {
 				System.out.println("Revista titulada " + getTitulo() + " ya ha sido leida");
@@ -36,7 +44,6 @@ public class Revista extends Publicacion {
 				setPagActual(getPagActual() + 1);
 				System.out.println("Pagina " + getPagActual() + " leida de la revista titulada " + getTitulo());
 			}
-
 		}
 	}
 	

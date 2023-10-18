@@ -10,7 +10,7 @@ public abstract class Publicacion implements CanRead {
 	private int pagInicial;
 	private boolean formatoDigital;
 	private double precio;
-	private int ID;
+	private int id;
 	private int pagActual;
 	private boolean leido;
 
@@ -21,7 +21,7 @@ public abstract class Publicacion implements CanRead {
 		this.pagActual = pagInicial;
 		this.formatoDigital = formatoDigital;
 		this.precio = precio;
-		this.ID = (int) nextID;
+		this.id = (int) nextID;
 		nextID += 1;
 	}
 
@@ -53,7 +53,7 @@ public abstract class Publicacion implements CanRead {
 	}
 
 	public int getID() {
-		return ID;
+		return id;
 	}
 
 	public int getPagActual() {
@@ -68,27 +68,11 @@ public abstract class Publicacion implements CanRead {
 		this.pagActual = pagActual;
 	}
 	
-	public void show(Publicacion p) {
-		if (p instanceof Libro) {
-			System.out.println(((Libro) p).getMensajeCabecera() + "Titulo: " + p.getTitulo() + "\n" + "Autor: "
-					+ ((Libro) p).getAutor() + "\n" + "Id: " + p.getID() + "\n" + "Paginas: " + p.getNumPags() + "\n"
-					+ "Pagina Inicial: " + p.getPagInicial() + "\n" + "Pagina Actual: " + p.getPagActual() + "\n"
-					+ "Precio: " + p.getPrecio() + "\n" + "Formato digital: " + p.isFormatoDigital() + "\n" + "Leido: "
-					+ p.isLeido() + "\n");
-		} else {
-
-			System.out.println(((Revista) p).getMensajeCabecera() + "Titulo: " + p.getTitulo() + "\n" + "Id: "
-					+ p.getID() + "\n" + "Paginas: " + p.getNumPags() + "\n" + "Pagina Inicial: " + p.getPagInicial()
-					+ "\n" + "Pagina Actual: " + p.getPagActual() + "\n" + "Precio: " + p.getPrecio() + "\n"
-					+ "Formato digital: " + p.isFormatoDigital() + "\n" + "Leido: " + p.isLeido() + "\n");
-		}
-	}
 	
-
-	public static void showStatic(Publicacion p) {
-		p.show(p);
+	public void leePagina() {
+		if (getPagActual() != getNumPags())
+			setPagActual(getPagActual() + 1);
 	}
-	
 	
 
 	public static void leePaginaStatic(boolean silenciosamente, Publicacion p) {
